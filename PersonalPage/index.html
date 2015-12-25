@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Levana Liu</title>
+		<link rel="stylesheet" href="css/materialize.min.css"  />
+		
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="react/react.min.js"></script>
+		<script type="text/javascript" src="react/react-dom.min.js"></script>
+		<script type="text/javascript" src="react/browser.min.js"></script>
+		<script type="text/javascript" src="js/materialize.min.js"></script>
+		<!--<script type="text/javascript" src="js/mainPage.js"></script>-->
+	</head>
+	<body>
+		
+		<div id="example" ></div>
+		
+	</body>
+	<script type="text/babel">
+		var liStyle = {
+			fontSize:'25px',
+			fontFamily:'gigi'
+		}
+		var Header = React.createClass({
+			render: function(){
+				return(
+					<div>
+						<div className="navbar-fixed">
+							<nav>
+							    <div className="nav-wrapper">
+							        <label className="brand-logo" style = {{marginLeft:'20px',fontFamily:'elephant'}}>Levana</label>
+							        <ul id="nav-mobile" className="right hide-on-med-and-down">
+								        <li><a href="#" style={liStyle}>Photo</a></li>
+								        <li><a href="#" style={liStyle}>Story</a></li>
+								        <li><a href="#" style={liStyle}>About me</a></li>
+							        </ul>
+							    </div>
+							</nav>
+						</div>
+					</div>
+				);
+			}
+		});
+		
+		var ImageCard = React.createClass({
+			
+			render: function(){
+				return(
+					<div className="row">
+	        			<div className="col s3">
+							<div className="card hoverable">
+								<div className="card-image waves-effect waves-block waves-light">
+								    <img className="activator" src= {this.props.src}/>
+								</div>
+								<div className="card-content">
+								    <span className="card-title activator grey-text text-darken-4">{this.props.title}</span>
+								</div>
+								<div className="card-reveal">
+								    <span className="card-title grey-text text-darken-4">{this.props.title}<i className="material-icons right">close</i></span>
+								    <p>{this.props.title}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				)
+			}
+		});
+		
+		ReactDOM.render(
+			<div>
+			<Header></Header>
+	        <ImageCard src="img/1.jpg" title="哈尔滨"></ImageCard>
+	       </div>,
+	      	document.getElementById('example')
+        );
+	</script>
+</html>
